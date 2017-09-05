@@ -1,8 +1,11 @@
 {
-  "name": "team-reflex/discord-php",
+  "name": "garrettw/wiscord",
   "description": "An unofficial API to interact with the voice and text service Discord.",
   "license": "MIT",
   "authors": [
+    {
+      "name": "Garrett Whitehorn"
+    },
     {
       "name": "David Cole",
       "email": "david@team-reflex.com"
@@ -13,22 +16,22 @@
     }
   ],
   "require": {
-    "php": "^5.6|^7.0",
-    "cache/array-adapter": "^0.4.0",
-    "guzzlehttp/guzzle": "~5.3|~6.0",
-    "illuminate/support": "^4.0|^5.0",
-    "nesbot/carbon": "^1.18",
-    "ratchet/pawl": "0.2.*",
-    "react/datagram": "1.1.*",
-    "react/socket-client": "0.4.*",
-    "symfony/options-resolver": "^2.7|^3.0",
+    "php": ">=5.6",
+    "ratchet/pawl": "^0.2",
+    "cache/array-adapter": "^1.0",
+    "guzzlehttp/guzzle": "^6.0",
+    "illuminate/support": "^5.4",
+    "nesbot/carbon": "^1.22",
+    "react/datagram": "^1.2",
+    "react/socket-client": "^0.5",
+    "symfony/options-resolver": "^3.3",
     "TrafficCophp/ByteBuffer": "^0.3",
-    "monolog/monolog": "^1.19",
-    "wyrihaximus/react-guzzle-psr7": "^1.0",
+    "monolog/monolog": "^1.23",
+    "wyrihaximus/react-guzzle-psr7": "^2.0",
     "react/partial": "^2.0"
   },
   "require-dev": {
-    "symfony/var-dumper": "^2.7|^3.0"
+    "symfony/var-dumper": "^3.3"
   },
   "autoload": {
     "files": ["src/Discord/functions.php"],
@@ -41,9 +44,8 @@
     "cache/memcache-adapter": "Required to use the Memcache cache driver",
     "cache/memcached-adapter": "Required to use the Memcached cache driver",
     "cache/redis-adapter": "Required to use the Redis cache driver",
-    "ext-libevent": "For a faster, and more performant loop. Preferred",
-    "ext-libev": "For a faster, and more performant loop",
-    "ext-event": "For a faster, and more performant loop"
-  },
-  "scripts": {}
+    "ext-libevent": "Improves event loop peformance. Preferred",
+    "ext-libev": "Improves event loop peformance",
+    "ext-event": "Improves event loop peformance"
+  }
 }
