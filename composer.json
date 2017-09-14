@@ -21,11 +21,12 @@
   ],
   "require": {
     "php": ">=5.6",
+    "psr/log": "^1.0.1",
+    "monolog/monolog": "^1.21",
     "symfony/options-resolver": "^3.3",
     "react/event-loop": "^0.4",
     "ratchet/pawl": "^0.2.2",
-    "clue/buzz-react": "^1.2",
-    "monolog/monolog": "^1.21"
+    "clue/buzz-react": "^1.2"
   },
   "require-dev": {
     "symfony/var-dumper": "^3.3",

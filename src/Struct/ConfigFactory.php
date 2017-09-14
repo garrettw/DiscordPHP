@@ -2,24 +2,24 @@
 
 namespace Wiscord\Struct;
 
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Monolog\Logger as Monolog;
-
 class ConfigFactory
 {
-    private $resolver;
-
     private $logger;
 
-    public function __construct(OptionsResolver $resolver, Monolog $logger)
+    public function __construct(\Psr\Log\LoggerInterface $logger)
     {
-        $this->resolver = $resolver;
         $this->logger = $logger;
     }
 
-    public function resolve(array $options)
+    public function create(array $options)
     {
-        $this->resolver
+        return new Config($this->resolve($options));
+    }
+
+    private function resolve(array $options)
+    {
+        $resolver = new \Symfony\Component\OptionsResolver\OptionsResolver;
+        $resolver
             ->setRequired('token')
             ->setAllowedTypes('token', 'string')
             ->setDefined([
@@ -61,7 +61,7 @@ class ConfigFactory
             ->setAllowedTypes('storeMessages', 'bool')
             ->setAllowedTypes('retrieveBans', 'bool');
 
-        $options = $this->resolver->resolve($options);
+        $options = $resolver->resolve($options);
 
         if (is_null($options['logger'])) {
             $this->logger->pushHandler(new StreamHandler('php://stdout', $options['loggerLevel']));

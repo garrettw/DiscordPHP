@@ -4,9 +4,11 @@ namespace Wiscord;
 
 class ClientFactory
 {
-    public function __construct()
-    {
+    private $logger;
 
+    public function __construct(\Psr\Log\LoggerInterface $logger)
+    {
+        $this->logger = $logger;
     }
 
     public function create(Struct\Config $config)
@@ -15,7 +17,7 @@ class ClientFactory
             $config,
             new \Ratchet\Client\WebSocket(),
             new \Clue\React\Buzz\Browser(),
-            new \Monolog\Logger()
+            $this->logger
         );
     }
 }

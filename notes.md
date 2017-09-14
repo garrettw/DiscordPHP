@@ -32,3 +32,20 @@ REST endpoint: https://discordapp.com/api/v#
     "react/datagram": "^1.2",
     "react/partial": "^2.0",
     "TrafficCophp/ByteBuffer": "^0.3"
+
+# API Example
+
+```php
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+// end user sets up logger themselves
+$logger = new Logger('wiscord');
+$logger->pushHandler(new StreamHandler('path/to/your.log', Logger::WARNING));
+
+$config = (new \Wiscord\Struct\ConfigFactory($logger))->create([...]);
+
+$client = (new \Wiscord\ClientFactory($logger))->create($config);
+$client->launch();
+
+```

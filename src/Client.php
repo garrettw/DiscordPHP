@@ -22,9 +22,8 @@ class Client
         Struct\Config $config,
         \Ratchet\Client\WebSocket $wsclient,
         \React\HttpClient\Client $httpclient,
-        \Monolog\Logger $logger
-    )
-    {
+        \Psr\Log\LoggerInterface $logger
+    ) {
         $this->config = $config;
         $this->wsclient = $wsclient;
         $this->httpclient = $httpclient;
