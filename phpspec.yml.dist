@@ -1,0 +1,4 @@
+suites:
+    default:
+        namespace: Wiscord
+        psr4_prefix: Wiscord

@@ -1,42 +1,39 @@
 {
   "name": "garrettw/wiscord",
-  "description": "An unofficial API to interact with the voice and text service Discord.",
+  "description": "An unofficial API to interact with the voice and text chat service Discord.",
   "license": "MIT",
   "authors": [
     {
-      "name": "Garrett Whitehorn"
+      "name": "Garrett Whitehorn",
+      "role": "Lead Developer",
+      "homepage": "http://garrettw.net/"
     },
     {
       "name": "David Cole",
+      "role": "Original Developer",
       "email": "david@team-reflex.com"
     },
     {
       "name": "Aaron Scherer",
+      "role": "Original Contributor",
       "email": "aequasi@gmail.com"
     }
   ],
   "require": {
     "php": ">=5.6",
-    "ratchet/pawl": "^0.2",
-    "cache/array-adapter": "^1.0",
-    "guzzlehttp/guzzle": "^6.0",
-    "illuminate/support": "^5.4",
-    "nesbot/carbon": "^1.22",
-    "react/datagram": "^1.2",
-    "react/socket-client": "^0.5",
     "symfony/options-resolver": "^3.3",
-    "TrafficCophp/ByteBuffer": "^0.3",
-    "monolog/monolog": "^1.23",
-    "wyrihaximus/react-guzzle-psr7": "^2.0",
-    "react/partial": "^2.0"
+    "ratchet/pawl": "^0.2.2",
+    "clue/buzz-react": "^1.2",
+    "monolog/monolog": "^1.21"
   },
   "require-dev": {
-    "symfony/var-dumper": "^3.3"
+    "symfony/var-dumper": "^3.3",
+    "phpspec/phpspec": "^3.0"
   },
   "autoload": {
-    "files": ["src/Discord/functions.php"],
+    "files": ["src/functions.php"],
     "psr-4": {
-      "Discord\\": "src/Discord"
+      "Wiscord\\": "src/"
     }
   },
   "suggest": {
@@ -44,7 +41,7 @@
     "cache/memcache-adapter": "Required to use the Memcache cache driver",
     "cache/memcached-adapter": "Required to use the Memcached cache driver",
     "cache/redis-adapter": "Required to use the Redis cache driver",
-    "ext-libevent": "Improves event loop peformance. Preferred",
+    "ext-libevent": "Improves event loop peformance (preferred)",
     "ext-libev": "Improves event loop peformance",
     "ext-event": "Improves event loop peformance"
   }
