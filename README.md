@@ -1,6 +1,15 @@
-# ALIVE?
+# Back from the dead?
 
-I might revive/rewrite this. I could use your help.
+Possibly. I could use help with this. So here's my philosophy:
+- Target PHP 5.6 first (since it's not EOL yet), then once that's all good,
+    branch for 7.0 and/or 7.1.
+- Anything can & will be changed from the old code, including the deps.
+- **Total SOLID OOP**. Avoid static methods, do no work in constructors, etc.
+- Factories may avoid the need to include a DI/IoC container as a dep.
+- Functions that truly are static and don't belong in a class can go in functions.php -
+    but keep them to as few as necessary.
+- BDD > TDD. Therefore, phpSpec > PHPUnit.
+
 
 DiscordPHP
 ====
