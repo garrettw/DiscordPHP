@@ -4,7 +4,10 @@ Possibly. I could use help with this. So here's my philosophy:
 - Target PHP 5.6 first (since it's not EOL yet), then once that's all good,
     branch for 7.0 and/or 7.1.
 - Anything can & will be changed from the old code, including the deps.
-- **Total SOLID OOP**. Avoid static methods, do no work in constructors, etc.
+- **Total SOLID OOP**.
+  - [Avoid static methods](https://r.je/static-methods-bad-practice.html)
+  - [Do no work in constructors](http://misko.hevery.com/code-reviewers-guide/flaw-constructor-does-real-work/)
+  - etc.
 - Factories may avoid the need to include a DI/IoC container as a dep.
 - Functions that truly are static and don't belong in a class can go in functions.php -
     but keep them to as few as necessary.

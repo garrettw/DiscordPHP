@@ -1,22 +1,20 @@
 <?php
 
-namespace Wiscord\Struct;
+namespace Wiscord;
 
-class ConfigFactory
+class ConfigResolver
 {
     private $logger;
 
-    public function __construct(\Psr\Log\LoggerInterface $logger)
+    private $data;
+
+    public function __construct(\Psr\Log\LoggerInterface $logger, array $data)
     {
         $this->logger = $logger;
+        $this->data   = $data;
     }
 
-    public function create(array $options)
-    {
-        return new Config($this->resolve($options));
-    }
-
-    private function resolve(array $options)
+    public function __invoke()
     {
         $resolver = new \Symfony\Component\OptionsResolver\OptionsResolver;
         $resolver
@@ -61,7 +59,7 @@ class ConfigFactory
             ->setAllowedTypes('storeMessages', 'bool')
             ->setAllowedTypes('retrieveBans', 'bool');
 
-        $options = $resolver->resolve($options);
+        $options = $resolver->resolve($this->data);
 
         if (is_null($options['logger'])) {
             $this->logger->pushHandler(new StreamHandler('php://stdout', $options['loggerLevel']));

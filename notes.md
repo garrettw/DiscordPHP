@@ -43,7 +43,7 @@ use Monolog\Handler\StreamHandler;
 $logger = new Logger('wiscord');
 $logger->pushHandler(new StreamHandler('path/to/your.log', Logger::WARNING));
 
-$config = (new \Wiscord\Struct\ConfigFactory($logger))->create([...]);
+$config = new \Wiscord\ConfigResolver($logger, ['options' => 'here']);
 
 $client = (new \Wiscord\ClientFactory($logger))->create($config);
 $client->launch();

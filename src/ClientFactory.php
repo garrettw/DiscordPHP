@@ -11,10 +11,10 @@ class ClientFactory
         $this->logger = $logger;
     }
 
-    public function create(Struct\Config $config)
+    public function create(ConfigResolver $config)
     {
         return new Client(
-            $config,
+            $config(),
             new \Ratchet\Client\WebSocket(),
             new \Clue\React\Buzz\Browser(),
             $this->logger

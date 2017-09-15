@@ -29,4 +29,9 @@ class Client
         $this->httpclient = $httpclient;
         $this->logger = $logger;
     }
+
+    public function launch()
+    {
+        return true;
+    }
 }
